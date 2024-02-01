@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Borrow Book</title>
+    
+</head>
+<body>
+    <h2>Borrow Book</h2>
+
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+
+    <form action="/borrow_book" method="post">
+        <label for="book_title">Book Title:</label>
+        <input type="text" id="book_title" name="book_title" required>
+        <input type="submit" value="Borrow Book">
+    </form>
+
+    
+</body>
+</html>

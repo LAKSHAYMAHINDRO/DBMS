@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Return Book</title>
+
+</head>
+<body>
+    <h2>Return Book</h2>
+
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+
+    <form action="/return_book" method="post">
+        <label for="returned_book_title">Returned Book Title:</label>
+        <input type="text" id="returned_book_title" name="returned_book_title" required>
+        <input type="submit" value="Return Book">
+    </form>
+
+ 
+</body>
+</html>
